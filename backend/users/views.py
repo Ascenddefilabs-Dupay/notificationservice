@@ -27,14 +27,14 @@ class VerifyEmailView(APIView):
         
         otp = random.randint(100000, 999999)
 
-        # # Send OTP
-        # send_mail(
-        #     "Your OTP Code",
-        #     f"Your OTP code is {otp}",
-        #     settings.EMAIL_HOST_USER,
-        #     [email],
-        #     fail_silently=False,
-        # )
+        # Send OTP
+        send_mail(
+            "Your OTP Code",
+            f"Your OTP code is {otp}",
+            settings.EMAIL_HOST_USER,
+            [email],
+            fail_silently=False,
+        )
         print(f"OTP for {email} is {otp}")
 
         # Save OTP to TempOTP model

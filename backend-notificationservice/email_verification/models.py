@@ -3,8 +3,8 @@ from django.db import models
 class Notification(models.Model):
     email_id = models.EmailField(unique=True)
     verification_status = models.BooleanField(default=False)
-    message = models.TextField()
-    type = models.CharField(max_length=50)
+    message = models.TextField(default='OTP Message')
+    type = models.CharField(max_length=50, default='OTP')
     status = models.CharField(max_length=20, default='unread')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

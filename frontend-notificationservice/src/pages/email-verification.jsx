@@ -1,10 +1,10 @@
 // src/pages/email-verification.tsx
-import NotificationService from '../app/NotificationService';
+import EmailVerification from '../app/EmailVerification';
 
 const EmailVerificationPage = () => {
   return (
     <div>
-      <NotificationService />
+      <EmailVerification />
     </div>
   );
 };

@@ -1,12 +1,14 @@
 from django.db import models
+from django.utils import timezone
 
 class Notification(models.Model):
     email_id = models.EmailField(unique=True)
     verification_status = models.BooleanField(default=False)
-    message = models.TextField(default='OTP Message')
+    message = models.TextField()
     type = models.CharField(max_length=50, default='OTP')
     status = models.CharField(max_length=20, default='unread')
     created_at = models.DateTimeField(auto_now_add=True)
+    # created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):

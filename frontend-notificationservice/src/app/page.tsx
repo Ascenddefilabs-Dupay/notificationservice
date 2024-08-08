@@ -4,7 +4,9 @@ import Link from 'next/link';
 export default function Home() {
   return (
     <>
-      <Link href="/email-verification">Verify Email</Link>
+      <Link href="/email-verification">Verify Email</Link><br/>
+      <Link href="/push-notification">Click for Notificaton</Link><br />
+      <Link href="/push-noti">Notification 2</Link>
     </>
   );
 }

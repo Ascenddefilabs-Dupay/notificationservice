@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'corsheaders',
     'email_verification',
     'PushNotification',
+    'PushNotification1',
     # 'users',
 ]
 
@@ -104,15 +105,22 @@ DATABASES = {
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django_cockroachdb',
-#         'NAME': 'my_database',
-#         'USER': 'dinakar',
-#         'PASSWORD': 'ufK8NNe4aLYDVBlkZ_JkvQ',
-#         'HOST': 'dinakar-14737.5xj.gcp-us-central1.cockroachlabs.cloud',
+#         'NAME': 'wallet_database',
+#         'USER': 'pavan',
+#         'PASSWORD': 'FLXOXcOuhLdOQyJgT0JnyQ',
+#         'HOST': 'pavan-gtpl-5613.7s5.aws-ap-south-1.cockroachlabs.cloud',
 #         'PORT': '26257',
-#         # 'OPTIONS': {
-#         #     'sslmode': 'verify-full'
-#         # },
-#         'sslmode': 'disable',
+#         'sslmode': 'disable'
+#         # 'ENGINE': 'django_cockroachdb',
+#         # 'NAME': 'my_database',
+#         # 'USER': 'dinakar',
+#         # 'PASSWORD': 'ufK8NNe4aLYDVBlkZ_JkvQ',
+#         # 'HOST': 'dinakar-14737.5xj.gcp-us-central1.cockroachlabs.cloud',
+#         # 'PORT': '26257',
+#         # # 'OPTIONS': {
+#         # #     'sslmode': 'verify-full'
+#         # # },
+#         # 'sslmode': 'disable',
 #     }
 # }
 

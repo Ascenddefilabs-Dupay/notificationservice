@@ -75,7 +75,8 @@ class SendNotificationView(View):
         
 @csrf_exempt
 def save_token(request):
-    if request.method == 'POST':
+    print(request)
+    if request.method == 'GET':
         return JsonResponse({'status': 'success'})
     return JsonResponse({'status': 'error', 'message': 'Invalid request method'}, status=400)
 

@@ -1,8 +1,9 @@
 'use client';
-import React, { useEffect, useCallback } from 'react';
+import React, { useEffect, useCallback, useState } from 'react';
 import axios from 'axios';
 
 const Index = () => {
+  const [userId, setUserId] = useState('');
 
   const sendNotification = (message) => {
     if ('Notification' in window && Notification.permission === 'granted') {
@@ -18,18 +19,22 @@ const Index = () => {
   };
 
   const createNotification = () => {
+    if (!userId) {
+      // alert('User ID is not set.');
+      return;
+    }
+
     axios.post('http://localhost:8000/api2/api2/create-notification/', {
-      user_id: 'dupA0001', // Replace with the actual user ID
+      user_id: userId,
       email_id: 'user@example.com',
       message: 'This is your notification message!!',
-      type: 'push notification', // Add the type field
+      type: 'push notification',
     }, {
       headers: {
         'Content-Type': 'application/json',
       },
     })
       .then(response => {
-        console.log('Notification ID:', response.data.notification_id);
         sendNotification(response.data.message); // Trigger the notification
       })
       .catch(error => {
@@ -40,10 +45,9 @@ const Index = () => {
 
   const requestNotificationPermission = useCallback(() => {
     if ('Notification' in window) {
-      if (Notification.permission === 'default' || Notification.permission === 'denied') {
-        Notification.requestPermission().then(function (permission) {
+      if (Notification.permission === 'default') {
+        Notification.requestPermission().then(permission => {
           if (permission === 'granted') {
-            console.log('Notification permission granted!!');
             createNotification();
           } else {
             alert('Notification permission is denied or ignored. Please enable notifications in your browser settings.');
@@ -53,12 +57,22 @@ const Index = () => {
         createNotification();
       }
     }
-  }, []);
+  }, [userId]);
 
   useEffect(() => {
-    if ('Notification' in window) {
-      requestNotificationPermission();
-    }
+    axios.get('http://localhost:8000/api2/api2/get-user-id/')
+      .then(response => {
+        if (response.data.user_id) {
+          setUserId(response.data.user_id);
+        } else {
+          alert('User ID is not set.');
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching user ID:', error);
+      });
+
+    requestNotificationPermission();
   }, [requestNotificationPermission]);
 
   return (
@@ -101,8 +115,10 @@ export default Index;
 
 //   const createNotification = () => {
 //     axios.post('http://localhost:8000/api2/api2/create-notification/', {
-//       email: 'user@example.com',
+//       user_id: 'dupA0001', // Replace with the actual user ID
+//       email_id: 'user@example.com',
 //       message: 'This is your notification message!!',
+//       type: 'push notification', // Add the type field
 //     }, {
 //       headers: {
 //         'Content-Type': 'application/json',

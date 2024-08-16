@@ -43,7 +43,6 @@ class NotificationSettings(models.Model):
 
 
 # from django.db import models
-# import uuid
 
 # class EmailVerificationNotification(models.Model):
 #     notification_id = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)
@@ -74,3 +73,14 @@ class NotificationSettings(models.Model):
 #             self.notification_id = f'NOT{id_number:04d}'
         
 #         super(EmailVerificationNotification, self).save(*args, **kwargs)
+
+# class NotificationSettings(models.Model):
+#     user_id = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)
+#     messages = models.BooleanField(default=True)
+
+#     class Meta:
+#         db_table = 'notification_settings'
+
+#     def __str__(self):
+#         return f'Notification Settings for {self.user_id}'
+

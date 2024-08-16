@@ -1,10 +1,24 @@
 'use client';
-import React, { useEffect, useCallback, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Index = () => {
   const [userId, setUserId] = useState('');
 
+  // Function to request notification permission
+  const requestNotificationPermission = () => {
+    if ('Notification' in window) {
+      if (Notification.permission === 'default') {
+        Notification.requestPermission().then(permission => {
+          if (permission !== 'granted') {
+            alert('Notification permission is denied or ignored. Please enable notifications in your browser settings.');
+          }
+        });
+      }
+    }
+  };
+
+  // Function to send the actual notification to the browser
   const sendNotification = (message) => {
     if ('Notification' in window && Notification.permission === 'granted') {
       const notification = new Notification('Dupay', {
@@ -18,14 +32,14 @@ const Index = () => {
     }
   };
 
+  // Function to create a notification by calling the backend
   const createNotification = () => {
     if (!userId) {
-      // alert('User ID is not set.');
+      alert('User ID is not set.');
       return;
     }
 
     axios.post('http://localhost:8000/api2/api2/create-notification/', {
-      user_id: userId,
       email_id: 'user@example.com',
       message: 'This is your notification message!!',
       type: 'push notification',
@@ -35,7 +49,8 @@ const Index = () => {
       },
     })
       .then(response => {
-        sendNotification(response.data.message); // Trigger the notification
+        alert('Notification created successfully');
+        sendNotification('This is your notification message!!'); // Trigger the browser notification
       })
       .catch(error => {
         console.error('Error:', error);
@@ -43,37 +58,22 @@ const Index = () => {
       });
   };
 
-  const requestNotificationPermission = useCallback(() => {
-    if ('Notification' in window) {
-      if (Notification.permission === 'default') {
-        Notification.requestPermission().then(permission => {
-          if (permission === 'granted') {
-            createNotification();
-          } else {
-            alert('Notification permission is denied or ignored. Please enable notifications in your browser settings.');
-          }
-        });
-      } else if (Notification.permission === 'granted') {
-        createNotification();
-      }
-    }
-  }, [userId]);
-
+  // Fetch user IDs when the component mounts
   useEffect(() => {
-    axios.get('http://localhost:8000/api2/api2/get-user-id/')
+    requestNotificationPermission(); // Ask for permission once
+
+    axios.get('http://localhost:8000/api2/api2/get-user-ids/')
       .then(response => {
-        if (response.data.user_id) {
-          setUserId(response.data.user_id);
+        if (response.data.user_ids && response.data.user_ids.length > 0) {
+          setUserId(response.data.user_ids[0]); // Set the first user ID
         } else {
-          alert('User ID is not set.');
+          alert('No users with messages enabled.');
         }
       })
       .catch(error => {
-        console.error('Error fetching user ID:', error);
+        console.error('Error fetching user IDs:', error);
       });
-
-    requestNotificationPermission();
-  }, [requestNotificationPermission]);
+  }, []);
 
   return (
     <div>
@@ -95,10 +95,11 @@ export default Index;
 
 
 // 'use client';
-// import React, { useEffect, useCallback } from 'react';
+// import React, { useEffect, useCallback, useState } from 'react';
 // import axios from 'axios';
 
 // const Index = () => {
+//   const [userId, setUserId] = useState('');
 
 //   const sendNotification = (message) => {
 //     if ('Notification' in window && Notification.permission === 'granted') {
@@ -114,18 +115,22 @@ export default Index;
 //   };
 
 //   const createNotification = () => {
+//     if (!userId) {
+//       // alert('User ID is not set.');
+//       return;
+//     }
+
 //     axios.post('http://localhost:8000/api2/api2/create-notification/', {
-//       user_id: 'dupA0001', // Replace with the actual user ID
+//       user_id: userId,
 //       email_id: 'user@example.com',
 //       message: 'This is your notification message!!',
-//       type: 'push notification', // Add the type field
+//       type: 'push notification',
 //     }, {
 //       headers: {
 //         'Content-Type': 'application/json',
 //       },
 //     })
 //       .then(response => {
-//         console.log('Notification ID:', response.data.notification_id);
 //         sendNotification(response.data.message); // Trigger the notification
 //       })
 //       .catch(error => {
@@ -136,10 +141,9 @@ export default Index;
 
 //   const requestNotificationPermission = useCallback(() => {
 //     if ('Notification' in window) {
-//       if (Notification.permission === 'default' || Notification.permission === 'denied') {
-//         Notification.requestPermission().then(function (permission) {
+//       if (Notification.permission === 'default') {
+//         Notification.requestPermission().then(permission => {
 //           if (permission === 'granted') {
-//             console.log('Notification permission granted!!');
 //             createNotification();
 //           } else {
 //             alert('Notification permission is denied or ignored. Please enable notifications in your browser settings.');
@@ -149,12 +153,22 @@ export default Index;
 //         createNotification();
 //       }
 //     }
-//   }, []);
+//   }, [userId]);
 
 //   useEffect(() => {
-//     if ('Notification' in window) {
-//       requestNotificationPermission();
-//     }
+//     axios.get('http://localhost:8000/api2/api2/get-user-id/')
+//       .then(response => {
+//         if (response.data.user_id) {
+//           setUserId(response.data.user_id);
+//         } else {
+//           alert('User ID is not set.');
+//         }
+//       })
+//       .catch(error => {
+//         console.error('Error fetching user ID:', error);
+//       });
+
+//     requestNotificationPermission();
 //   }, [requestNotificationPermission]);
 
 //   return (

@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'email_verification',
     'PushNotification',
     'PushNotification1',
+    'product_announcement',
+    'special_offers',
+    'insights_tips',
     # 'users',
 ]
 
@@ -93,12 +96,12 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django_cockroachdb',
-        'NAME': 'Dupay',  # Replace with your database name
-        'USER': 'gtpl',  # Replace with your SQL user
-        'PASSWORD': 'hPBQdeTyL6H9XpwFkyviwg',  # Replace with your SQL user password
+        'NAME': 'Dupay',
+        'USER': 'Gtpl',
+        'PASSWORD': 'mu6-f6rSv9t_oCLSh6iFLg',
         'HOST': 'meteor-dunnart-5620.7s5.aws-ap-south-1.cockroachlabs.cloud',
         'PORT': '26257',
-        'sslmode': 'disable',
+        'sslmode': 'disable'
         
     }
 }

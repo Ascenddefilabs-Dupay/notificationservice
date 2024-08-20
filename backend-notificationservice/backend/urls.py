@@ -23,4 +23,6 @@ urlpatterns = [
     path('api1/',include('PushNotification.urls')),
     path('api2/',include('PushNotification1.urls')),
     path('api3/',include('product_announcement.urls')),
+    path('api4/',include('special_offers.urls')),
+    path('api5/',include('insights_tips.urls')),
 ]

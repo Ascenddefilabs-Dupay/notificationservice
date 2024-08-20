@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     'PushNotification',
     'PushNotification1',
     'product_announcement',
+    'special_offers',
+    'insights_tips',
     # 'users',
 ]
 

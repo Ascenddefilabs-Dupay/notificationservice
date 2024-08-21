@@ -25,4 +25,6 @@ urlpatterns = [
     path('api3/',include('product_announcement.urls')),
     path('api4/',include('special_offers.urls')),
     path('api5/',include('insights_tips.urls')),
+    path('api6/',include('price_alerts.urls')),
+    path('api7/',include('account_activity.urls')),
 ]

@@ -48,6 +48,8 @@ INSTALLED_APPS = [
     'product_announcement',
     'special_offers',
     'insights_tips',
+    'price_alerts',
+    'account_activity',
     # 'users',
 ]
 

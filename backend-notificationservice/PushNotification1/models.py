@@ -36,7 +36,9 @@ class NotificationSettings(models.Model):
     messages = models.BooleanField(default=True)
     product_announcement = models.BooleanField(default=True)
     special_offers = models.BooleanField(default=True)
-    insights_tips = models.BooleanField(default=True) 
+    insights_tips = models.BooleanField(default=True)
+    price_alerts = models.BooleanField(default=True)
+    account_activity = models.BooleanField(default=True) 
 
     class Meta:
         db_table = 'notification_settings'

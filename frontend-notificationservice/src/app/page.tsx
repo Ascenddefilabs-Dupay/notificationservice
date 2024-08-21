@@ -9,7 +9,9 @@ export default function Home() {
       <Link href="/push-noti"> Messages Notification 2</Link><br />
       <Link href="/product_announcement">Product Announcement</Link><br />
       <Link href="/special_offers">Special Offers</Link><br />
-      <Link href="/insights_tips">Insights Tips</Link>
+      <Link href="/insights_tips">Insights Tips</Link><br />
+      <Link href="/price_alerts">Price Alerts</Link><br />
+      <Link href="/account_activity">Account Activity</Link><br />
     </>
   );
 }

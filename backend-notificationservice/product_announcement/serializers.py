@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from messages.models import EmailVerificationNotification, NotificationSettings
+from PushNotification1.models import EmailVerificationNotification, NotificationSettings
 
 class ProductAnnouncementSerializer(serializers.ModelSerializer):
     class Meta:

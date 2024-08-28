@@ -19,12 +19,12 @@ from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('api/',include('email_verification.urls')),
-    path('api1/',include('PushNotification.urls')),
-    path('api2/',include('PushNotification1.urls')),
-    path('api3/',include('product_announcement.urls')),
-    path('api4/',include('special_offers.urls')),
-    path('api5/',include('insights_tips.urls')),
-    path('api6/',include('price_alerts.urls')),
-    path('api7/',include('account_activity.urls')),
+    path('emailverificationapi/',include('email_verification.urls')),
+    # path('api1/',include('PushNotification.urls')),
+    path('messagenotificationapi/',include('PushNotification1.urls')),
+    path('productannouncementapi/',include('product_announcement.urls')),
+    path('specialoffersapi/',include('special_offers.urls')),
+    path('insightstipsapi/',include('insights_tips.urls')),
+    path('pricealertsapi/',include('price_alerts.urls')),
+    path('accountactivityapi/',include('account_activity.urls')),
 ]

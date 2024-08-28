@@ -6,16 +6,26 @@ from PushNotification1.models import EmailVerificationNotification, Notification
 from .serializers import AccountActivityNotificationSerializer
 from rest_framework.decorators import api_view
 from django.http import JsonResponse
+from django.db import connection  # Added for raw SQL queries
 import logging
 import time
 
 logger = logging.getLogger(__name__)
 
-# Function to create notifications after a delay
-def create_notification_with_delay(email_id, message, delay):
+# Function to fetch the delay from the notification_timings table
+def get_delay_from_db():
+    with connection.cursor() as cursor:
+        cursor.execute("SELECT account_activity_timing FROM notification_timings LIMIT 1;")
+        row = cursor.fetchone()
+    return row[0] if row else 10  # Default to 10 seconds if not found
+
+# Function to create notifications with or without a delay
+def create_notification(email_id, message, immediate=False):
+    delay = 0 if immediate else get_delay_from_db()  # Set delay to 0 for immediate notifications
     logger.info(f"Notification will be sent after {delay} seconds delay.")
     time.sleep(delay)  # Introduce delay
     logger.info("Delay over, creating notification now.")
+    
     try:
         settings = NotificationSettings.objects.filter(account_activity=True)
         user_ids = [setting.user_id for setting in settings]
@@ -49,11 +59,10 @@ class CreateAccountActivityNotificationView(APIView):
     def post(self, request, *args, **kwargs):
         email_id = request.data.get('email_id')
         message = request.data.get('message')
-        delay = request.data.get('delay', 10)  # Default delay is 10 seconds
-        try:
-            delay = int(delay) if delay.lower() != 'false' else 0  # Convert delay to integer if it's not 'false'
+        immediate = request.data.get('immediate', False)  # Get the immediate flag from the request
 
-            logger.debug(f"Received email_id: {email_id}, message: {message}, delay: {delay}")
+        try:
+            logger.debug(f"Received email_id: {email_id}, message: {message}, immediate: {immediate}")
 
             if not email_id or not message:
                 return Response(
@@ -61,8 +70,8 @@ class CreateAccountActivityNotificationView(APIView):
                     status=status.HTTP_400_BAD_REQUEST
                 )
 
-            # Create the notification with the specified delay
-            notifications = create_notification_with_delay(email_id, message, delay)
+            # Create the notification with or without delay based on the immediate flag
+            notifications = create_notification(email_id, message, immediate=immediate)
 
             if notifications is None:
                 return Response(
@@ -100,6 +109,9 @@ def get_account_activity_user_ids(request):
     except Exception as e:
         logger.error(f"Exception occurred while fetching user_ids for account activity: {str(e)}")
         return JsonResponse({'error': 'Internal server error'}, status=500)
+
+
+
 
 
 

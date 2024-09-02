@@ -1,12 +1,9 @@
-psycopg2-binary
-django==5.0.1
-django-cockroachdb==5.0
-psycopg2-binary
-django==5.0.1
-django-cockroachdb==5.0
-djangorestframework==3.14.0
-django-cors-headers==3.14.0
+asgiref==3.8.1
+certifi==2024.8.30
 celery==5.4.0
+cloudinary==1.41.0
+currency_converter==0.16
+Django==5.0.7
 django-celery-beat==2.6.0
 django-celery-results==2.5.1
 django-cockroachdb==5.0
@@ -33,3 +30,5 @@ pyasn1_modules==0.4.0
 redis==5.0.8
 sqlparse==0.5.1
 twilio==9.2.3
+tzdata==2024.1
+urllib3==2.2.2

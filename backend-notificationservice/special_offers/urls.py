@@ -1,9 +1,7 @@
-# special_offers/urls.py
 from django.urls import path
-from .views import CreateSpecialOffersNotificationView, SpecialOffersNotificationListView, get_special_offers_user_ids
+from .views import GetSpecialOffersUserIds, CreateSpecialOffersNotificationView
 
 urlpatterns = [
+    path('get-special-offers-user-ids/', GetSpecialOffersUserIds.as_view(), name='get-special-offers-user-ids'),
     path('create-special-offers/', CreateSpecialOffersNotificationView.as_view(), name='create-special-offers'),
-    path('special-offers/', SpecialOffersNotificationListView.as_view(), name='special-offers-list'),
-    path('get-special-offers-user-ids/', get_special_offers_user_ids, name='get-special-offers-user-ids'),
 ]

@@ -29,6 +29,7 @@ SECRET_KEY = 'django-insecure-z7rmug*-88abrifline^u6=^@kqbct0mcrgnmcfulq*3na^f+y
 DEBUG = True
 
 ALLOWED_HOSTS = ['notificationservice-rcfpsxcera-uc.a.run.app']
+# ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -50,6 +51,7 @@ INSTALLED_APPS = [
     'insights_tips',
     'price_alerts',
     'account_activity',
+    'notifications',
     # 'users',
 ]
 
@@ -90,6 +92,15 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
+
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': [
+#         'rest_framework.authentication.SessionAuthentication',
+#     ],
+#     'DEFAULT_PERMISSION_CLASSES': [
+#         'rest_framework.permissions.IsAuthenticated',
+#     ],
+# }
 
 
 # Database

@@ -1,6 +1,7 @@
 from django.urls import path
-from .views import CreateProductAnnouncementNotificationView
+from .views import GetProductAnnouncementUserIds, CreateProductAnnouncementNotificationView
 
 urlpatterns = [
-    path('create-product-announcement-notification/', CreateProductAnnouncementNotificationView.as_view(), name='create-product-announcement-notification'),
+    path('get-product-announcement-user-ids/', GetProductAnnouncementUserIds.as_view(), name='get-product-announcement-user-ids'),
+    path('create-product-announcement/', CreateProductAnnouncementNotificationView.as_view(), name='create-product-announcement'),
 ]

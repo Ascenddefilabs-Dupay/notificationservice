@@ -1,12 +1,7 @@
 from rest_framework import serializers
-from PushNotification1.models import EmailVerificationNotification, NotificationSettings
+from .models import ProductAnnouncementNotifications
 
-class ProductAnnouncementSerializer(serializers.ModelSerializer):
+class ProductAnnouncementNotificationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = EmailVerificationNotification
+        model = ProductAnnouncementNotifications
         fields = '__all__'
-
-class ProductAnnouncementSettingsSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = NotificationSettings
-        fields = ['user_id', 'product_announcement']

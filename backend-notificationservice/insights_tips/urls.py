@@ -1,8 +1,7 @@
 from django.urls import path
-from .views import CreateInsightsTipsNotificationView, InsightsTipsNotificationListView, get_insights_tips_user_ids
+from .views import GetInsightsTipsUserIds, CreateInsightsTipsNotificationView
 
 urlpatterns = [
-    path('create-insights-tips-notification/', CreateInsightsTipsNotificationView.as_view(), name='create-insights-tips-notification'),
-    path('insights-tips-notifications/', InsightsTipsNotificationListView.as_view(), name='insights-tips-notification-list'),
-    path('get_insights_tips_user_ids/', get_insights_tips_user_ids, name='get_insights_tips_user_ids'),
+    path('get-insights-tips-user-ids/', GetInsightsTipsUserIds.as_view(), name='get-insights-tips-user-ids'),
+    path('create-insights-tips/', CreateInsightsTipsNotificationView.as_view(), name='create-insights-tips'),
 ]

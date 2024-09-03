@@ -18,9 +18,9 @@ class SpecialOffersNotifications(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
-        constraints = [
-            models.UniqueConstraint(fields=['user_id'], name='unique_user_notifications', deferrable=models.Deferrable.DEFERRED)
-        ]
+        # constraints = [
+        #     models.UniqueConstraint(fields=['user_id'], name='unique_user_notifications', deferrable=models.Deferrable.DEFERRED)
+        # ]
         db_table = 'special_offers_notifications'
 
     def __str__(self):

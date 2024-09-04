@@ -7,7 +7,7 @@ class AdminInsightsTips(models.Model):
 
     class Meta:
         db_table = 'admin_insights_tips'
-        # managed = False
+        
 
     def __str__(self):
         return f'Insights Tips created at {self.created_at}'

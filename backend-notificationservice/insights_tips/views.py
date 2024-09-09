@@ -1,3 +1,5 @@
+import pika
+import json
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
@@ -6,6 +8,23 @@ from .models import AdminInsightsTips, InsightsTipsNotifications
 import logging
 
 logger = logging.getLogger(__name__)
+
+# Function to publish message to RabbitMQ
+def publish_to_rabbitmq(message):
+    try:
+        connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+        channel = connection.channel()
+
+        # Declare a queue
+        channel.queue_declare(queue='insights_tips_queue')
+
+        # Publish message
+        channel.basic_publish(exchange='', routing_key='insights_tips_queue', body=message)
+
+        connection.close()
+    except Exception as e:
+        logger.error(f"RabbitMQ Exception: {str(e)}")
+        raise e
 
 class CreateInsightsTipsNotificationView(APIView):
     def post(self, request, *args, **kwargs):
@@ -20,20 +39,21 @@ class CreateInsightsTipsNotificationView(APIView):
             # Get the latest insights tips content from AdminInsightsTips table
             insights_tips = AdminInsightsTips.objects.latest('created_at')
 
+            # For each user, send a message to RabbitMQ
             for user_id in user_ids:
-                notification = InsightsTipsNotifications(
-                    user_id=user_id,
-                    content=insights_tips.content
-                )
-                notification.save()
+                notification_data = {
+                    "user_id": user_id,
+                    "content": insights_tips.content
+                }
+                publish_to_rabbitmq(json.dumps(notification_data))
 
             return Response({
-                "message": "Insights Tips notifications triggered successfully.",
-                "insights_tips_content": insights_tips.content  # Return the insights tips content
+                "message": "Insights Tips notifications queued successfully.",
+                "insights_tips_content": insights_tips.content
             }, status=status.HTTP_201_CREATED)
 
         except Exception as e:
-            logger.error(f"Exception occurred while creating insights tips notifications: {str(e)}")
+            logger.error(f"Exception occurred while queuing notifications: {str(e)}")
             return Response(
                 {"error": str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR

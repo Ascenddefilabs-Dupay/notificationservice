@@ -32,3 +32,4 @@ sqlparse==0.5.1
 twilio==9.2.3
 tzdata==2024.1
 urllib3==2.2.2
+pika==1.2.1

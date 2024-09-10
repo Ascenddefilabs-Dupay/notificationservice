@@ -1,9 +1,7 @@
-
 from django.urls import path
-from .views import CreateNotificationView, NotificationListView, get_user_ids
+from .views import GetMessagesUserIds, CreateMessagesNotificationView
 
 urlpatterns = [
-    path('create-notification/', CreateNotificationView.as_view(), name='create-notification'),
-    path('notifications/', NotificationListView.as_view(), name='notification-list'),
-    path('get-user-ids/', get_user_ids, name='get-user-ids'),
+    path('get-messages-user-ids/', GetMessagesUserIds.as_view(), name='get-messages-user-ids'),
+    path('create-messages/', CreateMessagesNotificationView.as_view(), name='create-messages'),
 ]

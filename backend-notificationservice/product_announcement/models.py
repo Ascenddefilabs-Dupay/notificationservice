@@ -7,7 +7,7 @@ class AdminProductAnnouncement(models.Model):
 
     class Meta:
         db_table = 'admin_product_announcement'
-        # managed = False
+        
 
     def __str__(self):
         return f'Product Announcement created at {self.created_at}'
@@ -19,6 +19,9 @@ class ProductAnnouncementNotifications(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
+        # constraints = [
+        #     models.UniqueConstraint(fields=['user_id'], name='unique_user_notifications', deferrable=models.Deferrable.DEFERRED)
+        # ]
         db_table = 'product_announcement_notifications'
         # managed = False
 

@@ -7,9 +7,10 @@ class AdminSpecialOffers(models.Model):
 
     class Meta:
         db_table = 'admin_special_offers'
+        
 
     def __str__(self):
-        return f'Special Offer created at {self.created_at}'
+        return f'Special Offers created at {self.created_at}'
 
 class SpecialOffersNotifications(models.Model):
     notification_id = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)
@@ -22,6 +23,7 @@ class SpecialOffersNotifications(models.Model):
         #     models.UniqueConstraint(fields=['user_id'], name='unique_user_notifications', deferrable=models.Deferrable.DEFERRED)
         # ]
         db_table = 'special_offers_notifications'
+        # managed = False
 
     def __str__(self):
         return str(self.notification_id)

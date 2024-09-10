@@ -11,6 +11,8 @@ django.setup()
 from account_activity.models import AccountActivityNotifications
 from insights_tips.models import InsightsTipsNotifications
 from special_offers.models import SpecialOffersNotifications
+from product_announcement.models import ProductAnnouncementNotifications
+from PushNotification1.models import MessagesNotifications
 
 logger = logging.getLogger(__name__)
 
@@ -29,6 +31,10 @@ def callback(ch, method, properties, body):
                 notification = InsightsTipsNotifications(user_id=user_id, content=content)
             elif 'special_offers' in method.routing_key:
                 notification = SpecialOffersNotifications(user_id=user_id, content=content)
+            elif 'product_announcement' in method.routing_key:
+                notification = ProductAnnouncementNotifications(user_id=user_id, content=content)
+            elif 'messages' in method.routing_key:
+                notification = MessagesNotifications(user_id=user_id, content=content)
             else:
                 logger.error("Invalid queue name received")
                 return
@@ -52,11 +58,15 @@ def start_consuming():
         channel.queue_declare(queue='account_activity_queue')
         channel.queue_declare(queue='insights_tips_queue')
         channel.queue_declare(queue='special_offers_queue')
+        channel.queue_declare(queue='product_announcement_queue')
+        channel.queue_declare(queue='messages_queue')
 
         # Set up the consumers
         channel.basic_consume(queue='account_activity_queue', on_message_callback=callback, auto_ack=True)
         channel.basic_consume(queue='insights_tips_queue', on_message_callback=callback, auto_ack=True)
         channel.basic_consume(queue='special_offers_queue', on_message_callback=callback, auto_ack=True)
+        channel.basic_consume(queue='product_announcement_queue', on_message_callback=callback, auto_ack=True)
+        channel.basic_consume(queue='messages_queue', on_message_callback=callback, auto_ack=True)
 
         logger.info('Waiting for messages. To exit, press CTRL+C')
 

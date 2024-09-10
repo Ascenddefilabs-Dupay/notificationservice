@@ -1,14 +1,12 @@
-
 from rest_framework import serializers
-from .models import EmailVerificationNotification, NotificationSettings
+from .models import MessagesNotifications, NotificationSettings
 
 class NotificationSettingsSerializer(serializers.ModelSerializer):
     class Meta:
         model = NotificationSettings
         fields = ['user_id', 'messages']
 
-class NotificationSerializer(serializers.ModelSerializer):
+class MessagesNotificationSerializer(serializers.ModelSerializer):
     class Meta:
-        model = EmailVerificationNotification
+        model = MessagesNotifications
         fields = '__all__'
-

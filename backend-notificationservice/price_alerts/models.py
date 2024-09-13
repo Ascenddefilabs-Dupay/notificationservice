@@ -3,14 +3,14 @@ from PushNotification1.models import NotificationSettings
 
 class AdminPriceAlerts(models.Model):
     content = models.TextField()
+    price_inr = models.DecimalField(max_digits=15, decimal_places=2, default=0.0)
     created_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
         db_table = 'admin_price_alerts'
-        
 
     def __str__(self):
-        return f'Price Alerts created at {self.created_at}'
+        return f'Price Alert created at {self.created_at}'
 
 class PriceAlertsNotifications(models.Model):
     notification_id = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)

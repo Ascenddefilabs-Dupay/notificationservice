@@ -1,4 +1,6 @@
 asgiref==3.8.1
+psycopg2-binary
+django==5.0.1
 certifi==2024.8.30
 celery==5.4.0
 cloudinary==1.41.0
@@ -33,3 +35,17 @@ twilio==9.2.3
 tzdata==2024.1
 urllib3==2.2.2
 pika==1.2.1
+virtualenv==20.26.3
+uritemplate==4.1.1
+rsa==4.9
+pycparser==2.22
+PyJWT==2.9.0
+pyparsing==3.1.4
+requests==2.32.3
+google-resumable-media==2.7.2
+googleapis-common-protos==1.64.0
+grpcio==1.66.0
+grpcio-status==1.66.0
+httplib2==0.22.0
+idna==3.8
+msgpack==1.0.8

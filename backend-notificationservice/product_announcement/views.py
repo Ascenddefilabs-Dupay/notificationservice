@@ -1,11 +1,14 @@
+# views.py
 import pika
 import json
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import generics
 from rest_framework import status
 from PushNotification1.models import NotificationSettings
 from .models import AdminProductAnnouncement, ProductAnnouncementNotifications
 import logging
+from .serializers import AdminProductAnnouncementSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -29,15 +32,21 @@ def publish_to_rabbitmq(message):
 class CreateProductAnnouncementNotificationView(APIView):
     def post(self, request, *args, **kwargs):
         try:
+            content_id = request.data.get('content_id')
+            if not content_id:
+                return Response({"error": "content_id is required."}, status=status.HTTP_400_BAD_REQUEST)
+            
+            try:
+                product_announcement = AdminProductAnnouncement.objects.get(content_id=content_id)
+            except AdminProductAnnouncement.DoesNotExist:
+                return Response({"error": "AdminProductAnnouncement with given content_id does not exist."}, status=status.HTTP_404_NOT_FOUND)
+            
             # Fetch all user IDs where product announcement is True
             settings = NotificationSettings.objects.filter(product_announcement=True)
             user_ids = [setting.user_id for setting in settings]
 
             if not user_ids:
                 return Response({"error": "No users with product announcement enabled."}, status=status.HTTP_404_NOT_FOUND)
-
-            # Get the latest product announcement content from AdminProductAnnouncement table
-            product_announcement = AdminProductAnnouncement.objects.latest('created_at')
 
             # For each user, send a message to RabbitMQ
             for user_id in user_ids:
@@ -73,3 +82,12 @@ class GetProductAnnouncementUserIds(APIView):
         except Exception as e:
             logger.error(f"Exception occurred while fetching user_ids for product announcement: {str(e)}")
             return Response({'error': 'Internal server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class AdminProductAnnouncementListCreateView(generics.ListCreateAPIView):
+    queryset = AdminProductAnnouncement.objects.all()
+    serializer_class = AdminProductAnnouncementSerializer
+
+class AdminProductAnnouncementUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = AdminProductAnnouncement.objects.all()
+    serializer_class = AdminProductAnnouncementSerializer
+    lookup_field = 'content_id'

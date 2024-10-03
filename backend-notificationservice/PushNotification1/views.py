@@ -2,9 +2,11 @@ import pika
 import json
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import generics
 from rest_framework import status
-from .models import AdminMessages, MessagesNotifications,NotificationSettings
+from .models import AdminMessages, MessagesNotifications, NotificationSettings
 import logging
+from .serializers import AdminMessagesSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -28,15 +30,21 @@ def publish_to_rabbitmq(message):
 class CreateMessagesNotificationView(APIView):
     def post(self, request, *args, **kwargs):
         try:
+            content_id = request.data.get('content_id')
+            if not content_id:
+                return Response({"error": "content_id is required."}, status=status.HTTP_400_BAD_REQUEST)
+            
+            try:
+                messages = AdminMessages.objects.get(content_id=content_id)
+            except AdminMessages.DoesNotExist:
+                return Response({"error": "AdminMessages with given content_id does not exist."}, status=status.HTTP_404_NOT_FOUND)
+            
             # Fetch all user IDs where messages is True
             settings = NotificationSettings.objects.filter(messages=True)
             user_ids = [setting.user_id for setting in settings]
 
             if not user_ids:
                 return Response({"error": "No users with messages enabled."}, status=status.HTTP_404_NOT_FOUND)
-
-            # Get the latest messages content from AdminMessages table
-            messages = AdminMessages.objects.latest('created_at')
 
             # For each user, send a message to RabbitMQ
             for user_id in user_ids:
@@ -72,3 +80,12 @@ class GetMessagesUserIds(APIView):
         except Exception as e:
             logger.error(f"Exception occurred while fetching user_ids for messages: {str(e)}")
             return Response({'error': 'Internal server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class AdminMessagesListCreateView(generics.ListCreateAPIView):
+    queryset = AdminMessages.objects.all()
+    serializer_class = AdminMessagesSerializer
+
+class AdminMessagesUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = AdminMessages.objects.all()
+    serializer_class = AdminMessagesSerializer
+    lookup_field = 'content_id'

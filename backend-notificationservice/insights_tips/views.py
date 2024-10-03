@@ -1,11 +1,14 @@
+# views.py
 import pika
 import json
 from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework import generics
 from rest_framework import status
 from PushNotification1.models import NotificationSettings
 from .models import AdminInsightsTips, InsightsTipsNotifications
 import logging
+from .serializers import AdminInsightsTipsSerializer
 
 logger = logging.getLogger(__name__)
 
@@ -29,15 +32,21 @@ def publish_to_rabbitmq(message):
 class CreateInsightsTipsNotificationView(APIView):
     def post(self, request, *args, **kwargs):
         try:
+            content_id = request.data.get('content_id')
+            if not content_id:
+                return Response({"error": "content_id is required."}, status=status.HTTP_400_BAD_REQUEST)
+            
+            try:
+                insights_tips = AdminInsightsTips.objects.get(content_id=content_id)
+            except AdminInsightsTips.DoesNotExist:
+                return Response({"error": "AdminInsightsTips with given content_id does not exist."}, status=status.HTTP_404_NOT_FOUND)
+            
             # Fetch all user IDs where insights tips is True
             settings = NotificationSettings.objects.filter(insights_tips=True)
             user_ids = [setting.user_id for setting in settings]
 
             if not user_ids:
                 return Response({"error": "No users with insights tips enabled."}, status=status.HTTP_404_NOT_FOUND)
-
-            # Get the latest insights tips content from AdminInsightsTips table
-            insights_tips = AdminInsightsTips.objects.latest('created_at')
 
             # For each user, send a message to RabbitMQ
             for user_id in user_ids:
@@ -73,3 +82,12 @@ class GetInsightsTipsUserIds(APIView):
         except Exception as e:
             logger.error(f"Exception occurred while fetching user_ids for insights tips: {str(e)}")
             return Response({'error': 'Internal server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class AdminInsightsTipsListCreateView(generics.ListCreateAPIView):
+    queryset = AdminInsightsTips.objects.all()
+    serializer_class = AdminInsightsTipsSerializer
+
+class AdminInsightsTipsUpdateDeleteView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = AdminInsightsTips.objects.all()
+    serializer_class = AdminInsightsTipsSerializer
+    lookup_field = 'content_id'

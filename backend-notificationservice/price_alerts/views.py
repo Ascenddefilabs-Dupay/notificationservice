@@ -1,18 +1,18 @@
 from rest_framework.views import APIView
 from rest_framework.response import Response
-from rest_framework import status
+from rest_framework import status, generics
 import requests
 import json
 import pika
 from decimal import Decimal
 from datetime import datetime, timedelta
 from PushNotification1.models import NotificationSettings
-from .models import AdminPriceAlerts
+from .models import AdminPriceAlerts, AdminManageCryptoCurrencies, PriceAlertsNotifications
+from .serializers import PriceAlertsNotificationSerializer, AdminManageCryptoCurrenciesSerializer, AdminPriceAlertsSerializer
 import logging
 
 # Constants
-COINGECKO_API_URL = 'https://api.coingecko.com/api/v3/simple/price?ids=ethereum&vs_currencies=inr'
-PRICE_CHANGE_THRESHOLD = 0.30  # 5% price change threshold
+COINGECKO_API_URL_TEMPLATE = 'https://api.coingecko.com/api/v3/simple/price?ids={ids}&vs_currencies=inr'
 
 logger = logging.getLogger(__name__)
 
@@ -28,30 +28,22 @@ def publish_to_rabbitmq(message):
         logger.error(f"RabbitMQ Exception: {str(e)}")
         raise e
 
-def fetch_current_price():
-    try:
-        response = requests.get(COINGECKO_API_URL)
-        response.raise_for_status()
-        data = response.json()
-        price = Decimal(data['ethereum']['inr'])
-        print(f"Fetched new price from API: ₹{price}")  # Debugging
-        return price
-    except Exception as e:
-        logger.error(f"Error fetching price from CoinGecko: {str(e)}")
-        raise e
+class AdminManageCryptoCurrenciesListCreateView(generics.ListCreateAPIView):
+    queryset = AdminManageCryptoCurrencies.objects.all()
+    serializer_class = AdminManageCryptoCurrenciesSerializer
 
-# Function to calculate the percentage price change from the opening price
-def calculate_change(opening_price, current_price):
-    try:
-        change = ((current_price - opening_price) / opening_price) * 100
-        print(f"Opening Price: {opening_price}, Current Price: {current_price}, Change: {change}")  # Debugging
-        return change
-    except ZeroDivisionError as e:
-        logger.error(f"Error calculating price change: {str(e)}")
-        raise e
+    def create(self, request, *args, **kwargs):
+        logger.debug(f"Received POST data: {request.data}")
+        return super().create(request, *args, **kwargs)
+
+class AdminManageCryptoCurrenciesRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = AdminManageCryptoCurrencies.objects.all()
+    serializer_class = AdminManageCryptoCurrenciesSerializer
+    lookup_field = 'currency_id'
 
 class CreatePriceAlertsNotificationView(APIView):
     def post(self, request, *args, **kwargs):
+        logger.debug(f"Received POST data for create-price-alerts: {request.data}")
         try:
             # Fetch all user IDs where price alerts are enabled
             settings = NotificationSettings.objects.filter(price_alerts=True)
@@ -60,63 +52,83 @@ class CreatePriceAlertsNotificationView(APIView):
             if not user_ids:
                 return Response({"error": "No users with price alerts enabled."}, status=status.HTTP_404_NOT_FOUND)
 
-            # Fetch the current price from CoinGecko
-            new_price = fetch_current_price()
-            print(f"Fetched new price: {new_price}")  # Debugging
+            # Fetch all currencies from admin_manage_crypto_currencies
+            currencies = AdminManageCryptoCurrencies.objects.all()
+            if not currencies:
+                return Response({"error": "No currencies configured for price alerts."}, status=status.HTTP_400_BAD_REQUEST)
 
-            # Get the current date
+            # Build CoinGecko API URL
+            coin_ids = ','.join([currency.coin_gecko_id for currency in currencies])
+            api_url = COINGECKO_API_URL_TEMPLATE.format(ids=coin_ids)
+
+            # Fetch current prices
+            response = requests.get(api_url)
+            response.raise_for_status()
+            data = response.json()
+
+            # Get current date
             today = datetime.now().date()
+            notifications_content = []
 
-            try:
-                # Get the opening price for the day
-                price_alerts = AdminPriceAlerts.objects.latest('created_at')
-                old_price = price_alerts.price_inr
-                price_date = price_alerts.created_at.date()
-                print(f"Fetched old price: {old_price}, Fetched price date: {price_date}")  # Debugging
+            # Iterate over each currency
+            for currency in currencies:
+                current_price = Decimal(str(data.get(currency.coin_gecko_id, {}).get('inr', 0)))
+                if current_price == 0:
+                    continue  # Skip if price not found
 
-                # If the stored price is from a previous day, update the stored price with today's new price
-                if price_date != today:
-                    print(f"Updating opening price for the day to: {new_price}")
-                    AdminPriceAlerts.objects.create(content="Opening price for the day", price_inr=new_price)
-                    old_price = new_price  # Set old_price to today's new price for further comparisons in the day
-            except AdminPriceAlerts.DoesNotExist:
-                # If no previous price exists, store the current price as the first price of the day
-                old_price = None
+                # Get opening price for the day
+                try:
+                    opening_alert = AdminPriceAlerts.objects.filter(
+                        currency=currency,
+                        created_at__date=today,
+                        content__icontains='Opening price for the day'
+                    ).latest('created_at')
+                    opening_price = opening_alert.price_inr
+                except AdminPriceAlerts.DoesNotExist:
+                    # If no opening price, set current price as opening price
+                    AdminPriceAlerts.objects.create(
+                        content="Opening price for the day",
+                        currency=currency,
+                        price_inr=current_price
+                    )
+                    opening_price = current_price
 
-            # If old_price is None, store the current price as the first price of the day and return
-            if old_price is None:
-                AdminPriceAlerts.objects.create(content="First price of the day", price_inr=new_price)
-                return Response({
-                    "message": "No previous price to compare. Stored the current price as the first price of the day.",
-                    "new_price": new_price
-                }, status=status.HTTP_200_OK)
+                # Calculate price change percentage
+                if opening_price == 0:
+                    continue  # Avoid division by zero
+                price_change = ((current_price - opening_price) / opening_price) * 100
 
-            # Calculate the price change from the opening price
-            price_change = calculate_change(old_price, new_price)
+                # Check if price change exceeds the threshold
+                if abs(price_change) >= currency.price_change_threshold:
+                    direction = "increased" if price_change > 0 else "decreased"
 
-            # Check if price change exceeds the threshold (5% increase or decrease)
-            if abs(price_change) >= 0.30:
-                direction = "increased" if price_change > 0 else "decreased"
-                # For each user, send a message to RabbitMQ
-                for user_id in user_ids:
-                    notification_data = {
-                        "user_id": user_id,
-                        "content": f"Ethereum price {direction} by {price_change:.2f}% (New Price: ₹{new_price})"
-                    }
-                    # Publish the message to RabbitMQ
-                    publish_to_rabbitmq(json.dumps(notification_data))
+                    # For each user, send notification
+                    for user_id in user_ids:
+                        notification_data = {
+                            "user_id": user_id,
+                            "content": f"{currency.symbol} price {direction} by {price_change:.2f}% (New Price: ₹{current_price})"
+                        }
+                        # Publish the message to RabbitMQ
+                        publish_to_rabbitmq(json.dumps(notification_data))
 
-                # Update the latest price in AdminPriceAlerts
-                AdminPriceAlerts.objects.create(content=f"Price updated to ₹{new_price}", price_inr=new_price)
+                    # Add notification content for response
+                    notifications_content.append(f"{currency.symbol} price {direction} by {price_change:.2f}%")
+
+                    # Update the latest price in AdminPriceAlerts
+                    AdminPriceAlerts.objects.create(
+                        content=f"Price updated to ₹{current_price}",
+                        currency=currency,
+                        price_inr=current_price
+                    )
+
+            if notifications_content:
                 return Response({
                     "message": "Price Alerts notifications queued successfully.",
-                    "price_alerts_content": f"Ethereum price {direction} by {price_change:.2f}%",
-                    "new_price": new_price
+                    "price_alerts_content": notifications_content,
                 }, status=status.HTTP_201_CREATED)
             else:
                 return Response({
-                    "message": f"Price change of {price_change:.2f}% does not exceed the 5% threshold.",
-                    "new_price": new_price
+                    "message": "No price changes exceeded the thresholds.",
                 }, status=status.HTTP_200_OK)
 
         except Exception as e:
@@ -125,7 +137,6 @@ class CreatePriceAlertsNotificationView(APIView):
                 {"error": str(e)},
                 status=status.HTTP_500_INTERNAL_SERVER_ERROR
             )
-
 
 class GetPriceAlertsUserIdsView(APIView):
     def get(self, request, *args, **kwargs):
@@ -138,7 +149,20 @@ class GetPriceAlertsUserIdsView(APIView):
             else:
                 print("No users with price alerts enabled.")  # Debugging
                 return Response({'error': 'No users with price alerts enabled.'}, status=status.HTTP_404_NOT_FOUND)
-
         except Exception as e:
             logger.error(f"Exception occurred while fetching user IDs for price alerts: {str(e)}")
+            return Response({'error': 'Internal server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+class GetLatestAdminPriceAlertsView(APIView):
+    def get(self, request, *args, **kwargs):
+        try:
+            today = datetime.now().date()
+            five_days_ago = today - timedelta(days=5)
+            alerts = AdminPriceAlerts.objects.filter(
+                created_at__date__gte=five_days_ago
+            ).order_by('-created_at')[:100]  # Limit to 100 for performance
+            serializer = AdminPriceAlertsSerializer(alerts, many=True)
+            return Response(serializer.data, status=status.HTTP_200_OK)
+        except Exception as e:
+            logger.error(f"Exception occurred while fetching latest price alerts: {str(e)}")
             return Response({'error': 'Internal server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)

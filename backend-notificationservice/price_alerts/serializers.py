@@ -1,3 +1,4 @@
+# serializers.py
 from rest_framework import serializers
 from .models import PriceAlertsNotifications, AdminManageCryptoCurrencies, AdminPriceAlerts
 
@@ -10,6 +11,7 @@ class AdminManageCryptoCurrenciesSerializer(serializers.ModelSerializer):
     class Meta:
         model = AdminManageCryptoCurrencies
         fields = '__all__'
+        read_only_fields = ('currency_id',)  # Make currency_id read-only
 
     def validate_symbol(self, value):
         if not value.isupper() or len(value) != 3:

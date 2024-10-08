@@ -1,4 +1,7 @@
+# models.py
 from django.db import models
+from datetime import timedelta
+from django.utils import timezone
 from PushNotification1.models import NotificationSettings
 
 class AdminManageCryptoCurrencies(models.Model):
@@ -19,7 +22,12 @@ class AdminManageCryptoCurrencies(models.Model):
             last_currency = AdminManageCryptoCurrencies.objects.all().order_by('currency_id').last()
             if last_currency:
                 last_id = last_currency.currency_id
-                id_number = int(last_id.replace('CUR', '')) + 1
+                # Extract numeric part irrespective of the prefix
+                numeric_part = ''.join(filter(str.isdigit, last_id))
+                if not numeric_part:
+                    id_number = 1
+                else:
+                    id_number = int(numeric_part) + 1
             else:
                 id_number = 1
             self.currency_id = f'CUR{id_number:03d}'
@@ -28,7 +36,7 @@ class AdminManageCryptoCurrencies(models.Model):
 
 class AdminPriceAlerts(models.Model):
     content = models.TextField()
-    currency = models.ForeignKey(AdminManageCryptoCurrencies, on_delete=models.CASCADE)
+    currency = models.ForeignKey(AdminManageCryptoCurrencies, on_delete=models.CASCADE)  # Link to crypto currency
     price_inr = models.DecimalField(max_digits=15, decimal_places=2, default=0.0)
     created_at = models.DateTimeField(auto_now_add=True)
 
@@ -62,9 +70,9 @@ class PriceAlertsNotifications(models.Model):
             last_notification = PriceAlertsNotifications.objects.all().order_by('notification_id').last()
             if last_notification:
                 last_id = last_notification.notification_id
-                id_number = int(last_id.split('NOTPA')[-1]) + 1
+                id_number = int(''.join(filter(str.isdigit, last_id))) + 1
             else:
                 id_number = 1
             self.notification_id = f'NOTPA{id_number:05d}'
 
-        super(PriceAlertsNotifications, self).save(*args, **kwargs)
+        super(PriceAlertsNotifications, self).save(*args, **kwargs) 

@@ -1,3 +1,4 @@
+# views.py
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status, generics
@@ -11,7 +12,7 @@ from .models import AdminPriceAlerts, AdminManageCryptoCurrencies, PriceAlertsNo
 from .serializers import PriceAlertsNotificationSerializer, AdminManageCryptoCurrenciesSerializer, AdminPriceAlertsSerializer
 import logging
 
-# Constants
+# Constants 
 COINGECKO_API_URL_TEMPLATE = 'https://api.coingecko.com/api/v3/simple/price?ids={ids}&vs_currencies=inr'
 
 logger = logging.getLogger(__name__)
@@ -23,7 +24,7 @@ def publish_to_rabbitmq(message):
         channel.queue_declare(queue='price_alerts_queue')
         channel.basic_publish(exchange='', routing_key='price_alerts_queue', body=message)
         connection.close()
-        print("Message published to RabbitMQ:", message)  # Debugging
+        logger.info("Message published to RabbitMQ: %s", message)  # Debugging
     except Exception as e:
         logger.error(f"RabbitMQ Exception: {str(e)}")
         raise e
@@ -34,12 +35,27 @@ class AdminManageCryptoCurrenciesListCreateView(generics.ListCreateAPIView):
 
     def create(self, request, *args, **kwargs):
         logger.debug(f"Received POST data: {request.data}")
+        serializer = self.get_serializer(data=request.data)
+        if not serializer.is_valid():
+            logger.error(f"Serializer errors: {serializer.errors}")
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         return super().create(request, *args, **kwargs)
 
 class AdminManageCryptoCurrenciesRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
     queryset = AdminManageCryptoCurrencies.objects.all()
     serializer_class = AdminManageCryptoCurrenciesSerializer
     lookup_field = 'currency_id'
+
+    def update(self, request, *args, **kwargs):
+        logger.debug(f"Received PUT data for {kwargs.get('currency_id')}: {request.data}")
+        partial = kwargs.pop('partial', False)
+        instance = self.get_object()
+        serializer = self.get_serializer(instance, data=request.data, partial=partial)
+        if not serializer.is_valid():
+            logger.error(f"Serializer errors: {serializer.errors}")
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        self.perform_update(serializer)
+        return Response(serializer.data)
 
 class CreatePriceAlertsNotificationView(APIView):
     def post(self, request, *args, **kwargs):
@@ -87,7 +103,7 @@ class CreatePriceAlertsNotificationView(APIView):
                 except AdminPriceAlerts.DoesNotExist:
                     # If no opening price, set current price as opening price
                     AdminPriceAlerts.objects.create(
-                        content="Opening price for the day",
+                        content=f"{currency.coin_gecko_id} Opening price for the day",
                         currency=currency,
                         price_inr=current_price
                     )
@@ -116,7 +132,7 @@ class CreatePriceAlertsNotificationView(APIView):
 
                     # Update the latest price in AdminPriceAlerts
                     AdminPriceAlerts.objects.create(
-                        content=f"Price updated to ₹{current_price}",
+                        content=f"{currency.coin_gecko_id} Price updated to ₹{current_price}",
                         currency=currency,
                         price_inr=current_price
                     )
@@ -147,7 +163,7 @@ class GetPriceAlertsUserIdsView(APIView):
             if user_ids:
                 return Response({'user_ids': user_ids})
             else:
-                print("No users with price alerts enabled.")  # Debugging
+                logger.info("No users with price alerts enabled.")  # Debugging
                 return Response({'error': 'No users with price alerts enabled.'}, status=status.HTTP_404_NOT_FOUND)
         except Exception as e:
             logger.error(f"Exception occurred while fetching user IDs for price alerts: {str(e)}")
@@ -165,4 +181,4 @@ class GetLatestAdminPriceAlertsView(APIView):
             return Response(serializer.data, status=status.HTTP_200_OK)
         except Exception as e:
             logger.error(f"Exception occurred while fetching latest price alerts: {str(e)}")
-            return Response({'error': 'Internal server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+            return Response({'error': 'Internal server error'}, status=status.HTTP_500_INTERNAL_SERVER_ERROR) 

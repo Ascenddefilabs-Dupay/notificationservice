@@ -7739,3 +7739,298 @@ Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price inc
 Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
 Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.93% (New Price: \u20b912125.68)"}
 Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.93% (New Price: \u20b912125.68)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.76% (New Price: \u20b912105.32)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.76% (New Price: \u20b912105.32)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.76% (New Price: \u20b912105.32)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.76% (New Price: \u20b912105.32)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.76% (New Price: \u20b912105.32)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.76% (New Price: \u20b912105.32)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.76% (New Price: \u20b912105.32)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.76% (New Price: \u20b912105.32)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.76% (New Price: \u20b912105.32)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.76% (New Price: \u20b912105.32)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.83% (New Price: \u20b912114.41)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.83% (New Price: \u20b912114.41)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.83% (New Price: \u20b912114.41)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.83% (New Price: \u20b912114.41)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price increased by 0.16% (New Price: \u20b912120.2)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.24% (New Price: \u20b912072.04)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.22% (New Price: \u20b912074.55)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.22% (New Price: \u20b912074.55)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.22% (New Price: \u20b912074.55)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.22% (New Price: \u20b912074.55)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.22% (New Price: \u20b912074.55)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.22% (New Price: \u20b912074.55)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.22% (New Price: \u20b912074.55)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.22% (New Price: \u20b912074.55)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.22% (New Price: \u20b912074.55)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.22% (New Price: \u20b912074.55)"}
+Received PUT data for CUR006: {'symbol': 'BTC', 'coin_gecko_id': 'bitcoin', 'price_change_threshold': '1'}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.61% (New Price: \u20b9204264)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.61% (New Price: \u20b9204264)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.90% (New Price: \u20b911991.62)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.90% (New Price: \u20b911991.62)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.30% (New Price: \u20b9160.14)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.30% (New Price: \u20b9160.14)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.61% (New Price: \u20b9204264)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.61% (New Price: \u20b9204264)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.90% (New Price: \u20b911991.62)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.90% (New Price: \u20b911991.62)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.30% (New Price: \u20b9160.14)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.30% (New Price: \u20b9160.14)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.61% (New Price: \u20b9204264)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.61% (New Price: \u20b9204264)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.90% (New Price: \u20b911991.62)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.90% (New Price: \u20b911991.62)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.30% (New Price: \u20b9160.14)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.30% (New Price: \u20b9160.14)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.63% (New Price: \u20b9204217)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.63% (New Price: \u20b9204217)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.24% (New Price: \u20b9160.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.24% (New Price: \u20b9160.24)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.63% (New Price: \u20b9204217)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.63% (New Price: \u20b9204217)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.24% (New Price: \u20b9160.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.24% (New Price: \u20b9160.24)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.63% (New Price: \u20b9204217)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.63% (New Price: \u20b9204217)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.24% (New Price: \u20b9160.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.24% (New Price: \u20b9160.24)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.63% (New Price: \u20b9204217)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.63% (New Price: \u20b9204217)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.24% (New Price: \u20b9160.24)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.24% (New Price: \u20b9160.24)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.67% (New Price: \u20b9204141)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.67% (New Price: \u20b9204141)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.98% (New Price: \u20b911982.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.98% (New Price: \u20b911982.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.28% (New Price: \u20b9160.17)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.28% (New Price: \u20b9160.17)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.67% (New Price: \u20b9204141)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.67% (New Price: \u20b9204141)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.98% (New Price: \u20b911982.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.98% (New Price: \u20b911982.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.28% (New Price: \u20b9160.17)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.28% (New Price: \u20b9160.17)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.67% (New Price: \u20b9204141)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.67% (New Price: \u20b9204141)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.98% (New Price: \u20b911982.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.98% (New Price: \u20b911982.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.28% (New Price: \u20b9160.17)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.28% (New Price: \u20b9160.17)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.67% (New Price: \u20b9204141)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.67% (New Price: \u20b9204141)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.98% (New Price: \u20b911982.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.98% (New Price: \u20b911982.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.28% (New Price: \u20b9160.17)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.28% (New Price: \u20b9160.17)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.67% (New Price: \u20b9204141)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.67% (New Price: \u20b9204141)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.98% (New Price: \u20b911982.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.98% (New Price: \u20b911982.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.28% (New Price: \u20b9160.17)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.28% (New Price: \u20b9160.17)"}
+Received POST data: {'symbol': 'BTC', 'coin_gecko_id': 'bitcoin', 'price_change_threshold': '1'}
+Received POST data: {'symbol': 'BTC', 'coin_gecko_id': 'bitcoin', 'price_change_threshold': '1'}
+Serializer errors: {'coin_gecko_id': [ErrorDetail(string='admin manage crypto currencies with this coin gecko id already exists.', code='unique')]}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.82% (New Price: \u20b9203835)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.82% (New Price: \u20b9203835)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.99% (New Price: \u20b911980.67)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.99% (New Price: \u20b911980.67)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.61% (New Price: \u20b9159.63)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.61% (New Price: \u20b9159.63)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.82% (New Price: \u20b9203835)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.82% (New Price: \u20b9203835)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.99% (New Price: \u20b911980.67)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.99% (New Price: \u20b911980.67)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.61% (New Price: \u20b9159.63)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.61% (New Price: \u20b9159.63)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.82% (New Price: \u20b9203835)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.82% (New Price: \u20b9203835)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.99% (New Price: \u20b911980.67)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.99% (New Price: \u20b911980.67)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.61% (New Price: \u20b9159.63)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.61% (New Price: \u20b9159.63)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.82% (New Price: \u20b9203835)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.82% (New Price: \u20b9203835)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.99% (New Price: \u20b911980.67)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.99% (New Price: \u20b911980.67)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.61% (New Price: \u20b9159.63)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.61% (New Price: \u20b9159.63)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.82% (New Price: \u20b9203835)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.82% (New Price: \u20b9203835)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.99% (New Price: \u20b911980.67)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.99% (New Price: \u20b911980.67)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.61% (New Price: \u20b9159.63)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.61% (New Price: \u20b9159.63)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.58% (New Price: \u20b9204332)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.58% (New Price: \u20b9204332)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.75% (New Price: \u20b912009.92)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.75% (New Price: \u20b912009.92)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.25% (New Price: \u20b9160.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.25% (New Price: \u20b9160.22)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.58% (New Price: \u20b9204332)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.58% (New Price: \u20b9204332)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.75% (New Price: \u20b912009.92)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.75% (New Price: \u20b912009.92)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.25% (New Price: \u20b9160.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.25% (New Price: \u20b9160.22)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.58% (New Price: \u20b9204332)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.58% (New Price: \u20b9204332)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.75% (New Price: \u20b912009.92)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.75% (New Price: \u20b912009.92)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.25% (New Price: \u20b9160.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.25% (New Price: \u20b9160.22)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.58% (New Price: \u20b9204332)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.58% (New Price: \u20b9204332)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.75% (New Price: \u20b912009.92)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.75% (New Price: \u20b912009.92)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.25% (New Price: \u20b9160.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.25% (New Price: \u20b9160.22)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.58% (New Price: \u20b9204332)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.58% (New Price: \u20b9204332)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.75% (New Price: \u20b912009.92)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.75% (New Price: \u20b912009.92)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.25% (New Price: \u20b9160.22)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.25% (New Price: \u20b9160.22)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.51% (New Price: \u20b9204461)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.51% (New Price: \u20b9204461)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.37)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.37)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.10% (New Price: \u20b9160.46)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.10% (New Price: \u20b9160.46)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.58% (New Price: \u20b9204316)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.58% (New Price: \u20b9204316)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.74)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.74)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.51% (New Price: \u20b9159.79)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.51% (New Price: \u20b9159.79)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.58% (New Price: \u20b9204316)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.58% (New Price: \u20b9204316)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.74)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.74)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.51% (New Price: \u20b9159.79)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.51% (New Price: \u20b9159.79)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.58% (New Price: \u20b9204316)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.58% (New Price: \u20b9204316)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.74)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.74)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.51% (New Price: \u20b9159.79)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.51% (New Price: \u20b9159.79)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.58% (New Price: \u20b9204316)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.58% (New Price: \u20b9204316)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.74)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.74)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.51% (New Price: \u20b9159.79)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.51% (New Price: \u20b9159.79)"}
+Received POST data for create-price-alerts: {'user_id': 'DupC0015'}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "ETH price decreased by -0.58% (New Price: \u20b9204316)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "ETH price decreased by -0.58% (New Price: \u20b9204316)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.74)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SOL price decreased by -0.94% (New Price: \u20b911987.74)"}
+Message published to RabbitMQ: {"user_id": "DupC0015", "content": "SUI price decreased by -2.51% (New Price: \u20b9159.79)"}
+Message published to RabbitMQ: {"user_id": "DupC0037", "content": "SUI price decreased by -2.51% (New Price: \u20b9159.79)"}

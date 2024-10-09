@@ -132,7 +132,7 @@ class CreatePriceAlertsNotificationView(APIView):
 
                     # Update the latest price in AdminPriceAlerts
                     AdminPriceAlerts.objects.create(
-                        content=f"{currency.coin_gecko_id} Price updated to ₹{current_price}",
+                        content=f"{currency.coin_gecko_id} Price {direction} by {price_change:.2f}% New Price: ₹{current_price}",
                         currency=currency,
                         price_inr=current_price
                     )

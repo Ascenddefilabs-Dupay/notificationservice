@@ -28,9 +28,9 @@ SECRET_KEY = 'django-insecure-z7rmug*-88abrifline^u6=^@kqbct0mcrgnmcfulq*3na^f+y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-# ALLOWED_HOSTS = ['notificationservice-ind-255574993735.asia-south1.run.app']
+ALLOWED_HOSTS = ['notificationservice-ind-255574993735.asia-south1.run.app']
 ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -68,7 +68,7 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://127.0.0.1:3000",
-    # 'https://dupay.biz',
+    'https://dupay.biz',
 ]
 
 CORS_ALLOW_METHODS = [

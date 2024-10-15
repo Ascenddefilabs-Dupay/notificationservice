@@ -29,8 +29,8 @@ SECRET_KEY = 'django-insecure-z7rmug*-88abrifline^u6=^@kqbct0mcrgnmcfulq*3na^f+y
 DEBUG = True
 
 ALLOWED_HOSTS = ['notificationservice-ind-255574993735.asia-south1.run.app']
-ALLOWED_HOSTS = []
-ALLOWED_HOSTS = ['*']
+# ALLOWED_HOSTS = []
+# ALLOWED_HOSTS = ['*']
 
 
 # Application definition

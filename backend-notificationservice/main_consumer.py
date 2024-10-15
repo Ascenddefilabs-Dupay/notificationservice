@@ -54,7 +54,8 @@ def callback(ch, method, properties, body):
 
 def start_consuming():
     try:
-        connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+        # connection = pika.BlockingConnection(pika.ConnectionParameters('localhost'))
+        connection = pika.BlockingConnection(pika.ConnectionParameters('rabbitmq'))
         channel = connection.channel()
 
         # Declare the queues

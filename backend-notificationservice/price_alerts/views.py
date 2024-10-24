@@ -11,9 +11,13 @@ from PushNotification1.models import NotificationSettings
 from .models import AdminPriceAlerts, AdminManageCryptoCurrencies, PriceAlertsNotifications
 from .serializers import PriceAlertsNotificationSerializer, AdminManageCryptoCurrenciesSerializer, AdminPriceAlertsSerializer
 import logging
-
+from dotenv import load_dotenv
+import os
+# from dotenv import load_dotenv
+load_dotenv()
 # Constants 
-COINGECKO_API_URL_TEMPLATE = 'https://api.coingecko.com/api/v3/simple/price?ids={ids}&vs_currencies=inr'
+# COINGECKO_API_URL_TEMPLATE = 'https://api.coingecko.com/api/v3/simple/price?ids={ids}&vs_currencies=inr'
+COINGECKO_API_URL_TEMPLATE = os.getenv('COINGECKO_API_URL_TEMPLATE')
 
 logger = logging.getLogger(__name__)
 

@@ -14,3 +14,67 @@ class Transaction(models.Model):
     class Meta:
         db_table = 'transaction_table'
         managed = False
+
+
+class PriceAlertsNotifications(models.Model):
+    notification_id = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)
+    user_id = models.CharField(max_length=255)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        db_table = 'price_alerts_notifications'
+        managed = False
+
+
+class MessagesNotifications(models.Model):
+    notification_id = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)
+    user_id = models.CharField(max_length=255)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        db_table = 'messages_notifications'
+        managed = False
+    
+class SpecialOffersNotifications(models.Model):
+    notification_id = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)
+    user_id = models.CharField(max_length=255)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        db_table = 'special_offers_notifications'
+        managed = False
+
+
+class ProductAnnouncementNotifications(models.Model):
+    notification_id = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)
+    user_id = models.CharField(max_length=255)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        db_table = 'product_announcement_notifications'
+        managed = False
+
+class InsightsTipsNotifications(models.Model):
+    notification_id = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)
+    user_id = models.CharField(max_length=255)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        db_table = 'insights_tips_notifications'
+        managed = False
+
+
+class AccountActivityNotifications(models.Model):
+    notification_id = models.CharField(max_length=255, unique=True, primary_key=True, editable=False)
+    user_id = models.CharField(max_length=255)
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        db_table = 'account_activity_notifications'
+        managed = False

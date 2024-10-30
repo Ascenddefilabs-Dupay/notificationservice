@@ -44,15 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'corsheaders',
-    'email_verification',
-    'PushNotification1',
-    'product_announcement',
-    'special_offers',
-    'insights_tips',
-    'price_alerts',
-    'account_activity',
     'notifications',
-    # 'users',
 ]
 
 MIDDLEWARE = [
@@ -85,27 +77,27 @@ CORS_ALLOW_HEADERS = [
     # ... any other headers you need to allow
 ]
 
-LOGGING = {
-    'version': 1,
-    'disable_existing_loggers': False,
-    'handlers': {
-        'console': {
-            'class': 'logging.StreamHandler',
-        },
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': 'debug.log',
-        },
-    },
-    'loggers': {
-        'price_alerts': {  # Replace 'price_alerts' with your app name
-            'handlers': ['console', 'file'],
-            'level': 'DEBUG',
-            'propagate': True,
-        },
-    },
-}
+# LOGGING = {
+#     'version': 1,
+#     'disable_existing_loggers': False,
+#     'handlers': {
+#         'console': {
+#             'class': 'logging.StreamHandler',
+#         },
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': 'debug.log',
+#         },
+#     },
+#     'loggers': {
+#         'price_alerts': {  # Replace 'price_alerts' with your app name
+#             'handlers': ['console', 'file'],
+#             'level': 'DEBUG',
+#             'propagate': True,
+#         },
+#     },
+# }
 
 
 CORS_ALLOW_ALL_ORIGINS = True

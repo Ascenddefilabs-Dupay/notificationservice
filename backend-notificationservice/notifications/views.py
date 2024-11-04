@@ -1,12 +1,6 @@
 from django.http import JsonResponse
 from django.utils import timezone
 from datetime import timedelta
-# from account_activity.models import AccountActivityNotifications
-# from insights_tips.models import InsightsTipsNotifications
-# from product_announcement.models import ProductAnnouncementNotifications
-# from special_offers.models import SpecialOffersNotifications
-# from PushNotification1.models import MessagesNotifications
-# from price_alerts.models import PriceAlertsNotifications
 from .models import Transaction, PriceAlertsNotifications, MessagesNotifications, SpecialOffersNotifications, ProductAnnouncementNotifications, InsightsTipsNotifications, AccountActivityNotifications
 from datetime import datetime, timedelta
 from django.utils.timezone import make_aware, is_aware, get_current_timezone

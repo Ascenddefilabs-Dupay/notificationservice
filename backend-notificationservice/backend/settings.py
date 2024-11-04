@@ -28,9 +28,9 @@ SECRET_KEY = 'django-insecure-z7rmug*-88abrifline^u6=^@kqbct0mcrgnmcfulq*3na^f+y
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['notificationservice-ind-255574993735.asia-south1.run.app']
+# ALLOWED_HOSTS = ['notificationservice-ind-255574993735.asia-south1.run.app']
 # ALLOWED_HOSTS = []
-# ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -76,28 +76,6 @@ CORS_ALLOW_HEADERS = [
     "authorization",
     # ... any other headers you need to allow
 ]
-
-# LOGGING = {
-#     'version': 1,
-#     'disable_existing_loggers': False,
-#     'handlers': {
-#         'console': {
-#             'class': 'logging.StreamHandler',
-#         },
-#         'file': {
-#             'level': 'DEBUG',
-#             'class': 'logging.FileHandler',
-#             'filename': 'debug.log',
-#         },
-#     },
-#     'loggers': {
-#         'price_alerts': {  # Replace 'price_alerts' with your app name
-#             'handlers': ['console', 'file'],
-#             'level': 'DEBUG',
-#             'propagate': True,
-#         },
-#     },
-# }
 
 
 CORS_ALLOW_ALL_ORIGINS = True

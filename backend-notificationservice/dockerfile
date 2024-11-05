@@ -10,6 +10,6 @@ COPY . .
 # RUN python main_consumer.py
 
 
-# CMD ["python", "manage.py", "runserver", "0.0.0.0:8003"]
+CMD ["python", "manage.py", "runserver", "0.0.0.0:8003"]
 
-CMD ["sh", "-c", "python manage.py runserver 0.0.0.0:8003 & python main_consumer.py"]
+# CMD ["sh", "-c", "python manage.py runserver 0.0.0.0:8003 & python main_consumer.py"]

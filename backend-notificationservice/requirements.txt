@@ -1,5 +1,4 @@
 asgiref==3.8.1
-psycopg2-binary
 django==5.0.1
 certifi==2024.8.30
 celery==5.4.0

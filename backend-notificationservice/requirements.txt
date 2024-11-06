@@ -48,3 +48,4 @@ grpcio-status==1.50.0
 httplib2==0.22.0
 idna==3.8
 msgpack==1.0.8
+django-environ
